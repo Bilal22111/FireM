@@ -621,19 +621,19 @@ client.on("message", message => {
        .setDescription(`
 
    **✨Administrationr Commands | اوامر الاداره✨**
- #ban    | لحظر لاعب
- #kick   | لإخراج لاعب من السيرفر
- #mute   |  لإسكات لاعب
- #unmute | لإلغاء الاإسكات عن لاعب
- #bc     | لإرسال رسالة لمستخدمي البوت
- #clear  | لمسح اشات
+ !ban    | لحظر لاعب
+ !kick   | لإخراج لاعب من السيرفر
+ !mute   |  لإسكات لاعب
+ !unmute | لإلغاء الاإسكات عن لاعب
+ !bc     | لإرسال رسالة لمستخدمي البوت
+ !clear  | لمسح اشات
  **✨Common Commands | الاوامر العامة ✨**
- #avatar | لإظهار الصورة الخاصة بك و رابطها
- #help   | لإظهار هذه الرسالة
- #suggest | للإقتراح
- #id     | لإظهار معلومات حسابك العامة
- #bot    | لإظهار معلومات البوت
- #tag    |  لكتابة الكلام بطريقة مميزة
+ !avatar | لإظهار الصورة الخاصة بك و رابطها
+ !help   | لإظهار هذه الرسالة
+ !suggest | للإقتراح
+ !id     | لإظهار معلومات حسابك العامة
+ !bot    | لإظهار معلومات البوت
+ !tag    |  لكتابة الكلام بطريقة مميزة
  `)
  message.author.send(embed);
 }  
@@ -863,4 +863,4 @@ moment.locale('ar-TN');
 
 
 
-client.login(procces.env.BOT_TOKEN);
+client.login('NDYwNDQ0MjYzODgxMTEzNjEx.DhE5wg.J0RyhWcAsqOyVxcyk_1rOlgPfTo');
