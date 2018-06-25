@@ -5,9 +5,7 @@ var moment = require("moment");
 const figlet = require('figlet');
 
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
+
 
 
 
@@ -31,27 +29,7 @@ client.on('message', msg => {
 
 
 
-client.on('message', msg => {
-  if(msg.content.startsWith('!suggest')) {
-    if(!msg.channel.guild) return msg.reply('** هاذا الامر فقط للسيرفرات**');
-    if(!msg.guild.channels.find('name', 'suggestions')) return msg.reply('Add Suggestions room');
-    let args = msg.content.split(" ").slice(1);
-    if(!args[1]) return msg.reply('الرجاء كتابة الاقتراح')
-    if(msg.guild.channels.find('name', 'suggestions')) {
-      msg.guild.channels.find('name', 'suggestions').send(`
-      تم الاقتراح من قبل : ${msg.member}
 
-      الاقتراح : 
-      ${args.join(" ").split(msg.mentions.members.first()).slice(' ')}
-      `)
-      .then(function (message) {
-        message.react('✅')
-        message.react('❌')
-      })
-      }
-    }
-
-});
 
 
 
@@ -98,31 +76,6 @@ if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');
 
 
 
-
-
-client.on('message', message => {
-    if (message.content.startsWith("!bot")) {
-      message.channel.send({
- embed: new Discord.RichEmbed() 
-    .setColor('RED')
-    .addField('**الذاكرة المستخدمة 💾**', `${(process.memoryUsage().rss / 1000000).toFixed()}MB`, true)
-         .addField('**سرعة الاتصال📡**' , `${Date.now() - message.createdTimestamp}` + ' ms')
-        .addField('**وقت الاقلاع⌚**', timeCon(process.uptime()), true)
-        .addField('**استخدام المعالج💿**', `${(process.cpuUsage().rss / 10000).toFixed()}%`, true)
-     })
-    }
-  });
-  function timeCon(time) {
-    let days = Math.floor(time % 31536000 / 86400)
-    let hours = Math.floor(time % 31536000 % 86400 / 3600)
-    let minutes = Math.floor(time % 31536000 % 86400 % 3600 / 60)
-    let seconds = Math.round(time % 31536000 % 86400 % 3600 % 60)
-    days = days > 9 ? days : '0' + days
-    hours = hours > 9 ? hours : '0' + hours
-    minutes = minutes > 9 ? minutes : '0' + minutes
-    seconds = seconds > 9 ? seconds : '0' + seconds
-    return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
-};
 
 
 
@@ -643,12 +596,54 @@ client.on("message", message => {
 
 
 
+client.on('message', msg => {
+  if(msg.content.startsWith('!suggest')) {
+    if(!msg.channel.guild) return msg.reply('** هاذا الامر فقط للسيرفرات**');
+    if(!msg.guild.channels.find('name', 'suggestions')) return msg.reply('Add Suggestions room');
+    let args = msg.content.split(" ").slice(1);
+    if(!args[1]) return msg.reply('الرجاء كتابة الاقتراح')
+    if(msg.guild.channels.find('name', 'suggestions')) {
+      msg.guild.channels.find('name', 'suggestions').send(`
+      تم الاقتراح من قبل : ${msg.member}
+
+      الاقتراح : 
+      ${args.join(" ").split(msg.mentions.members.first()).slice(' ')}
+      `)
+      .then(function (message) {
+        message.react('✅')
+        message.react('❌')
+      })
+      }
+    }
+
+});
 
 
 
 
-
-
+client.on('message', message => {
+  if (message.content.startsWith("!bot")) {
+    message.channel.send({
+embed: new Discord.RichEmbed() 
+  .setColor('RED')
+  .addField('**الذاكرة المستخدمة 💾**', `${(process.memoryUsage().rss / 1000000).toFixed()}MB`, true)
+       .addField('**سرعة الاتصال📡**' , `${Date.now() - message.createdTimestamp}` + ' ms')
+      .addField('**وقت الاقلاع⌚**', timeCon(process.uptime()), true)
+      .addField('**استخدام المعالج💿**', `${(process.cpuUsage().rss / 10000).toFixed()}%`, true)
+   })
+  }
+});
+function timeCon(time) {
+  let days = Math.floor(time % 31536000 / 86400)
+  let hours = Math.floor(time % 31536000 % 86400 / 3600)
+  let minutes = Math.floor(time % 31536000 % 86400 % 3600 / 60)
+  let seconds = Math.round(time % 31536000 % 86400 % 3600 % 60)
+  days = days > 9 ? days : '0' + days
+  hours = hours > 9 ? hours : '0' + hours
+  minutes = minutes > 9 ? minutes : '0' + minutes
+  seconds = seconds > 9 ? seconds : '0' + seconds
+  return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
+};
 
  
  
@@ -811,8 +806,5 @@ moment.locale('ar-TN');
 
 
 
-<<<<<<< HEAD
-client.login("NDYwNDQ0MjYzODgxMTEzNjEx.DhE1qQ.UdpsWPmIDi8j2TrnNTIoHU_ChL4");
-=======
-client.login('NDYwNDQ0MjYzODgxMTEzNjEx.DhE5wg.J0RyhWcAsqOyVxcyk_1rOlgPfTo');
->>>>>>> fe35ff07dc0af8592281e5395e84a3fd02b80c81
+
+client.login('NDYwNDQ0MjYzODgxMTEzNjEx.DhE1qQ.UdpsWPmIDi8j2TrnNTIoHU_ChL4');
