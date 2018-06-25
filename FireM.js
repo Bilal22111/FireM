@@ -650,20 +650,6 @@ client.on("message", message => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
  
  
@@ -682,44 +668,6 @@ client.on("message", message => {
  
  
  
- 
- 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -863,4 +811,4 @@ moment.locale('ar-TN');
 
 
 
-client.login('NDYwNDQ0MjYzODgxMTEzNjEx.DhE1qQ.UdpsWPmIDi8j2TrnNTIoHU_ChL4');
+client.login("NDYwNDQ0MjYzODgxMTEzNjEx.DhE1qQ.UdpsWPmIDi8j2TrnNTIoHU_ChL4");
